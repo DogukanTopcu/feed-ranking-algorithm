@@ -139,8 +139,54 @@ export default async function RankedFeedPage({ params }: PageProps) {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
                     <span className="text-gray-700 font-medium">Processing Time</span>
-                    <span className="font-bold text-green-600">{rankedFeed.details.total_time}ms</span>
+                    <span className="font-bold text-green-600">{rankedFeed.details.total_time.toFixed(6)} ms</span>
                   </div>
+                  <div className="flex flex-col justify-between p-2 bg-gray-50 rounded">
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Personalization Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.personalization_time.toFixed(6)} ms</span>
+                    </div>
+                    <div className='border-b-2 border-gray-200' />
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Social Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.social_time.toFixed(6)} ms</span>
+                    </div>
+                    <div className='border-b-2 border-gray-200' />
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Quality Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.quality_time.toFixed(6)} ms</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col justify-between p-2 bg-gray-50 rounded">
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Embedding Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.embedding_time.toFixed(6)} ms</span>
+                    </div>
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Tag Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.tag_time.toFixed(6)} ms</span>
+                    </div>
+                    <div className='border-b-2 border-gray-200' />
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Creator Following Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.creator_following_time.toFixed(6)} ms</span>
+                    </div>
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Following Engagement Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.following_engagement_time.toFixed(6)} ms</span>
+                    </div>
+                    <div className='border-b-2 border-gray-200' />
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Popularity Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.popularity_time.toFixed(6)} ms</span>
+                    </div>
+                    <div className='flex items-center justify-between p-2'>
+                      <span className="text-gray-700 font-medium">Aestetic Time</span>
+                      <span className="font-bold text-green-600">{rankedFeed.details.aesthetic_time.toFixed(6)} ms</span>
+                    </div>
+                  </div>
+
                   <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
                     <span className="text-gray-700 font-medium">Items Ranked</span>
                     <span className="font-bold text-green-600">{feedItems.length}</span>

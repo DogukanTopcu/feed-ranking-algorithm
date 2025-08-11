@@ -80,6 +80,15 @@ export interface IFeedSample {
 
 export interface IDetails {
   total_time: number;
+  embedding_time: number;
+  tag_time: number;
+  personalization_time: number;
+  creator_following_time: number;
+  following_engagement_time: number;
+  social_time: number;
+  popularity_time: number;
+  aesthetic_time: number;
+  quality_time: number;
 }
 
 export interface IVariables {
