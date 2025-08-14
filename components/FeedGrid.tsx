@@ -39,51 +39,62 @@ export default function FeedGrid({ items, nCols }: FeedGridProps) {
   }
 
   return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className="flex w-auto -ml-4"
-      columnClassName="pl-4 bg-clip-padding"
-    >
-      {items.map((item, index) => (
-        <div key={index} className="mb-4 break-inside-avoid">
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="relative aspect-square">
-              {item.image_url && (
-                <Image
-                  src={item.image_url}
-                  alt={`Feed item ${index}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                />
-              )}
-            </div>
-            <div className="p-3">
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2">
-                  {item.score !== undefined && (
-                    <span className="text-gray-600">
-                      Score: {item.score ? item.score.toFixed(3) : 0}
-                    </span>
-                  )}
-                  {item.source_type && (
-                    <span className="text-gray-500 text-xs bg-gray-100 px-2 py-1 rounded">
-                      {item.source_type}
-                    </span>
-                  )}
-                </div>
-                {item.color && (
-                  <div
-                    className="w-4 h-4 rounded-full border border-gray-300"
-                    style={{ backgroundColor: item.color }}
-                    title={item.color}
+    <div className="flex justify-center">
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="flex w-auto -ml-4"
+        columnClassName="pl-4 bg-clip-padding"
+      >
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className={`mb-4 break-inside-avoid ${
+              nCols === 1
+                ? 'max-w-lg mx-auto'
+                : nCols === 2
+                ? 'max-w-2xl mx-auto'
+                : 'max-w-xl'
+            }`}
+          >
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="relative aspect-square">
+                {item.image_url && (
+                  <Image
+                    src={item.image_url}
+                    alt={`Feed item ${index}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                   />
                 )}
               </div>
+              <div className="p-3">
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2">
+                    {item.score !== undefined && (
+                      <span className="text-gray-600">
+                        Score: {item.score ? item.score.toFixed(3) : 0}
+                      </span>
+                    )}
+                    {item.source_type && (
+                      <span className="text-gray-500 text-xs bg-gray-100 px-2 py-1 rounded">
+                        {item.source_type}
+                      </span>
+                    )}
+                  </div>
+                  {item.color && (
+                    <div
+                      className="w-4 h-4 rounded-full border border-gray-300"
+                      style={{ backgroundColor: item.color }}
+                      title={item.color}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </Masonry>
+        ))}
+      </Masonry>
+    </div>
   );
 }

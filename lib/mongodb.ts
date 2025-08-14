@@ -148,7 +148,7 @@ export async function getRankedFeedsCollection(): Promise<Collection<IRankedFeed
 
 export async function getRerankedFeedsCollection(): Promise<Collection<IRerankedFeed>> {
   const db = await getDb();
-  return db.collection<IRerankedFeed>('reranked_feeds');
+  return db.collection<IRerankedFeed>('reranked_feeds_v4');
 }
 
 export async function getImagesCollection(): Promise<Collection<IImage>> {
